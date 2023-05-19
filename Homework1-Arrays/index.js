@@ -15,31 +15,31 @@ const otherValues = [
 
                                     // TEMA JS ARRAY
 
-// initialValues.push(otherValues[0])
-// initialValues.push(otherValues[1])
-// initialValues.push(otherValues[2])
-// initialValues.push(otherValues[3])
-// initialValues.push(otherValues[4])
-// initialValues.push(otherValues[5])
-// initialValues.push(otherValues[6])
-// initialValues.push(otherValues[otherValues.length - 1])
+initialValues.push(otherValues[0])
+initialValues.push(otherValues[1])
+initialValues.push(otherValues[2])
+initialValues.push(otherValues[3])
+initialValues.push(otherValues[4])
+initialValues.push(otherValues[5])
+initialValues.push(otherValues[6])
+initialValues.push(otherValues[otherValues.length - 1])
 
-// const adunare = initialValues[4] + initialValues[initialValues.length - 1]
-// const scadere = initialValues[initialValues.length - 1] - 5
+const adunare = initialValues[4] + initialValues[initialValues.length - 1]
+const scadere = initialValues[initialValues.length - 1] - 5
 
-// initialValues[initialValues.length - 1] = scadere
-// initialValues[4] = adunare
+initialValues[initialValues.length - 1] = scadere
+initialValues[4] = adunare
 
-// initialValues[3] = initialValues[3] + " HappyCoding"
-// initialValues[10] = initialValues[10] + " HappyCoding"
-// initialValues[11][0] = initialValues[11][0] + " HappyCoding"
+initialValues[3] = initialValues[3] + " HappyCoding"
+initialValues[10] = initialValues[10] + " HappyCoding"
+initialValues[11][0] = initialValues[11][0] + " HappyCoding"
 
-// initialValues[11][1] = !initialValues[11][1]
-// initialValues[5] = !initialValues[5]
-// initialValues[9] = !initialValues[9]
-// initialValues[12] = !initialValues[12]
+initialValues[11][1] = !initialValues[11][1]
+initialValues[5] = !initialValues[5]
+initialValues[9] = !initialValues[9]
+initialValues[12] = !initialValues[12]
 
-// console.log(initialValues)
+console.log(initialValues)
 
 
                                     // ALTE INCERCARI
