@@ -4,6 +4,7 @@ const capacitate = prompt("Te rog adauga capacitatea cilindrinca")
 // initial cred ca as combina switch cu niste if-uri pe ici pe colo
 
 
+// LA TEMA ASTA TREBUIE SA FACI SI O VARIANTA CU HTML SI CSS INTRU-UN FORM
 
 // Deci inputul meu este data introdusa de utilizator apoi
 // TREBUIE SA FAC CEVA CA IN CAZUL IN CARE InPUTUL MEU NU ESTE NUMAR SA IL refuze si sa apara din nou prompt-ul
