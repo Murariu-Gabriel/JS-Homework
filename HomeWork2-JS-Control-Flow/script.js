@@ -1,11 +1,9 @@
-const vehicul = prompt("Te rog introdu tipul de vehicul")
+const vehicul = prompt("Te rog introdu tipul de vehicul").toLowerCase()
 const capacitate =  parseInt(prompt("Te rog adauga capacitatea cilindrinca"))
-const caseProofVehicle = vehicul.toLowerCase()
-
 
 const cm3Division = capacitate / 200
 
-switch (caseProofVehicle) {
+switch (vehicul) {
   case "motocicleta":
   case "cvadriclu":
   case "triciclu": {
@@ -78,6 +76,6 @@ switch (caseProofVehicle) {
     break
   }
   default: {
-    alert(`${caseProofVehicle} Acest vehicul nu exista`)
+    alert(`${vehicul} Acest vehicul nu exista`)
   }
 }
