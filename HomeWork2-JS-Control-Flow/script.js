@@ -79,6 +79,5 @@ switch (caseProofVehicle) {
   }
   default: {
     alert(`${caseProofVehicle} Acest vehicul nu exista`)
-    console.log(typeof capacitate)
   }
 }

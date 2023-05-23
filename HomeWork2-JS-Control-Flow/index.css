@@ -12,11 +12,14 @@ section{
     gap: 30px;
 }
 
+h1{
+    text-align: center; 
+}
+
 form{
-    /* text-align: center; */
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column; 
     gap: 10px
 }
 
