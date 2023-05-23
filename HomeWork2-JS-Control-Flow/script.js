@@ -1,5 +1,5 @@
 const vehicul = prompt("Te rog introdu tipul de vehicul")
-const capacitate = parseInt(prompt("Te rog adauga capacitatea cilindrinca"))
+const capacitate =  parseInt(prompt("Te rog adauga capacitatea cilindrinca"))
 const caseProofVehicle = vehicul.toLowerCase()
 
 

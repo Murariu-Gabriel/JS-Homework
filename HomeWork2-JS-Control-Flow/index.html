@@ -5,9 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="alternative.js" defer></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    
+    <section id="section">
+        <form id="form">
+            <h1>Impozit auto</h1>
+            <div>
+                <label for="vehicle">Alege tipul de vehiul</label>
+                <select name="vehicle" id="vehicle" required>
+                    <option value=""></option>
+                    <option value="motocicleta">Motocicleta</option>
+                    <option value="cvadriclu">Cvadriclu</option>
+                    <option value="triciclu">Triciclu</option>
+                    <option value="autoturism">Autoturism</option>
+                    <option value="autobuz">Autobuz</option>
+                    <option value="microbuz">Microbuz</option>
+                    <option value="tractor">Tractor</option>
+                    <option value="microbuz">Camion</option>
+                </select>
+            </div>
+            <div>
+                <label for="capacity">Introdu capacitatea cilindrica</label>
+                <input type="number" value="" name="capacity" id="capacity" required>
+            </div>
+            <button type="submit"> Calculeaza impozit</button>
+        </form>
+
+        <h2 id="result-container"></h2>
+
+    </section>
 </body>
 </html>
