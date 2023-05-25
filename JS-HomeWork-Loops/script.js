@@ -1,26 +1,26 @@
-const array1 = [1, 2, 4, 7, 9, 20]
-const array2 = [1, true, false, 4, 3, 10, 20, "string", NaN, undefined]
+const array1 = [1, 2, 4, 7, 9, 20];
+const array2 = [1, true, false, 4, 3, 10, 20, "string", NaN, undefined];
 
 const isNumber = (num) => {
   if (typeof num === "number" && !isNaN(num)) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 const mediaAritmetica = (arr) => {
-  let rez = 0
+  let rez = 0;
 
   for (let el of arr) {
     if (isNumber(el)) {
       rez += el
     }
   }
-  return rez
+  return rez;
 }
 
-const media = mediaAritmetica(array1)
-const media2 = mediaAritmetica(array2)
+const media = mediaAritmetica(array1);
+const media2 = mediaAritmetica(array2);
 
 // console.log("Rezultat",media2);
 
@@ -34,29 +34,37 @@ const media2 = mediaAritmetica(array2)
 
 const fibonaciiNumbers = (num) => {
 
-  let previous = 0
-  let next = 1
-  let calc
+    if(typeof num !== "number"){
+        return alert("Not a number")
+    }
 
-  for (let i = 0; i <= num; i++) {
-    calc = previous + next // 0 + 1 = 1 || 1 + 1 = 2 || 1 + 2 = 3 || 2 + 3 = 5 || 3 + 5 = 8 ||
-    previous = next // 0 -> 1 || 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 ||
-    next = calc // 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 || 1 -> 8 ||
+    let nums = [];
 
-    console.log(calc)
-    // console.log(
-    //   `Calcul ${previous} + ${next} = ${
-    //     previous + next
-    //   } \n Previous -> ${previous} = ${next} \n Next -> ${next} = ${
-    //     previous + next
-    //   }`
-    // )
-  }
+    let previous = 0;
+    let next = 1;
+    let calc;
 
-  return calc
+    for (let i = 0; i <= num; i++) {
+        calc = previous + next; // 0 + 1 = 1 || 1 + 1 = 2 || 1 + 2 = 3 || 2 + 3 = 5 || 3 + 5 = 8 ||
+        previous = next; // 0 -> 1 || 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 ||
+        next = calc; // 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 || 1 -> 8 ||
+
+        console.log(calc);
+        nums.push(calc);
+        // console.log(
+        //   `Calcul ${previous} + ${next} = ${
+        //     previous + next
+        //   } \n Previous -> ${previous} = ${next} \n Next -> ${next} = ${
+        //     previous + next
+        //   }`
+        // )
+    }
+
+  return nums;
 }
 
-const rez = fibonaciiNumbers(20)
+const rez = fibonaciiNumbers(20);
 
-console.log(rez)
+console.log(rez);
+
 
