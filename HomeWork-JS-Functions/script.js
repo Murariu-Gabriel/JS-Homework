@@ -16,7 +16,7 @@ const isStringMoney = (word) => {
   }
 }
 
-const moneyTypesFroString = (array) => {
+const moneyTypesFromString = (array) => {
   const money = []
   for (const el of array) {
     if (isStringMoney(el)) {
@@ -61,12 +61,12 @@ const computeIncome = (sentence) => {
 
   const nums = numsFromString(splitSentence)
   const total = calculTotal(nums)
-    // partea asta cauzeaza probleme
+ 
   if (!splitSentence.includes("euro/luna") && !splitSentence.includes("usd/luna")) {
     return `Venitul anual al lui ${name} este de ${total}`
     
   } else {
-    const moneyTypes = moneyTypesFroString(splitSentence)
+    const moneyTypes = moneyTypesFromString(splitSentence)
 
     for(const [index, element] of moneyTypes.entries()){
        nums[index] = convertMoney(nums[index], element)
@@ -90,5 +90,3 @@ console.log(lucianIncome)
 console.log(mariaIncome)
 console.log(dariusIncome);
 
-console.log(isNaN("0")) // false
-console.log(isNaN("string")) // true
