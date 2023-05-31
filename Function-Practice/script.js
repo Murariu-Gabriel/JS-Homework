@@ -194,17 +194,20 @@ const password = `!p@$)(a:"-este_vali#a`
 
 const passwordValidation = (string) => {
   if(string.length < 8){
-    return "Password must have at least 8 characters"
+    return false
+    // "Password must have at least 8 characters"
   }
 
   const specialCharsRegex = /[!@#$%^&*()_+\-=[\]{};':"|,.<>/?]+/
   const hasSpecialChars = specialCharsRegex.test(string)
 
   if (!hasSpecialChars) {
-    return "You need at least one special character"
+    return false
+    // "You need at least one special character"
   }
 
-  return "Password is valid"
+  return true
+  // "Password is valid"
 }
 
 const validation = passwordValidation(password)
@@ -223,10 +226,11 @@ const emailValidation = (string) => {
 
 
   if(!isValidEmail){
-    return "email is not valid"
+    return false
+    // "email is not valid"
   }
-
-  return "email is valid"
+// "email is valid"
+  return true
 
 }
 
@@ -235,6 +239,102 @@ const validation2 = emailValidation(email)
 // console.log(validation2)
 
 //3
+
+const user = {
+  email: "andrei_12@yahoo.com",
+  nume: "george",
+  prenume: "andrei",
+  password: "!andreiierdna47"
+}
+
+
+const userValidation = (user) => {
+
+  for(const key in user){
+    if(key === "email"){
+      if(!emailValidation(user[key])){
+        return false
+        // "email is not valid"
+      }
+  
+    }
+
+    if (key === "password") {
+      if (!passwordValidation(user[key])) {
+        return false
+        // "password is not valid"
+      }
+    }
+
+    if (key === "nume" || key === "prenume"){
+      if(user[key].length < 4){
+        return false
+        // `${key} is to short`
+      }
+    }
+
+  }
+
+  return true
+}
+
+
+
+const validation3 = userValidation(user)
+
+// console.log(validation3)
+
+// 4
+
+const users = [
+  {
+    email: "andrei_12@yahoo.com",
+    nume: "george",
+    prenume: "andrei",
+    password: "!andreiierdna47",
+  },
+  {
+    email: "dan 23@yahoo.com",
+    nume: "gheorghe",
+    prenume: "",
+    password: "ceva",
+  },
+  {
+    email: "delete@yahoo.com",
+    nume: "1",
+    prenume: "",
+    password: "!123123123",
+  },
+  {
+    email: "gigi@yahoo.com",
+    nume: "agrigoroaie",
+    prenume: "george",
+    password: "!george_geo7",
+  },
+  {
+    email: "anononim_60@yahoo.com",
+    nume: "noName",
+    prenume: "",
+    password: "12345",
+  },
+]
+
+// Aici stau si ma intreb daca ar fi trebuit sau nu sa fac o metoda mai lunga doar pentru exercitiu
+
+const userListValidation = (list) => {
+  return users.filter(user => userValidation(user))
+}
+
+const validation4 = userListValidation(users)
+
+console.log(validation4)
+
+
+
+
+
+
+
 
 
  
