@@ -249,30 +249,45 @@ const user = {
 
 
 const userValidation = (user) => {
+  // aici initial m-am gandit sa iterez prin obiect dar acum ca stau si ma gandesc din moment ce au cred ca tipul asta de obiect nu va primii prea multe actualizari vad a fi mai eficient sa fac o versiune fara looping. Sunt curios daca ce gandesc eu este adevarat
 
-  for(const key in user){
-    if(key === "email"){
-      if(!emailValidation(user[key])){
-        return false
-        // "email is not valid"
-      }
-  
-    }
+  // for(const key in user){
+  //   if(key === "email"){
+  //     if(!emailValidation(user[key])){
+  //       return false
+  //       // "email is not valid"
+  //     }
 
-    if (key === "password") {
-      if (!passwordValidation(user[key])) {
-        return false
-        // "password is not valid"
-      }
-    }
+  //   }
 
-    if (key === "nume" || key === "prenume"){
-      if(user[key].length < 4){
-        return false
-        // `${key} is to short`
-      }
-    }
+  //   if (key === "password") {
+  //     if (!passwordValidation(user[key])) {
+  //       return false
+  //       // "password is not valid"
+  //     }
+  //   }
 
+  //   if (key === "nume" || key === "prenume"){
+  //     if(user[key].length < 4){
+  //       return false
+  //       // `${key} is to short`
+  //     }
+  //   }
+
+  // }
+
+  if (!emailValidation(user.email)) {
+    return false
+    // "email is not valid"
+  }
+
+  if (!passwordValidation(user.password)) {
+    return false
+    // "email is not valid"
+  }
+
+  if (user.nume.length < 4 || user.prenume.length < 4) {
+      return false
   }
 
   return true
@@ -282,7 +297,7 @@ const userValidation = (user) => {
 
 const validation3 = userValidation(user)
 
-// console.log(validation3)
+console.log(validation3)
 
 // 4
 
