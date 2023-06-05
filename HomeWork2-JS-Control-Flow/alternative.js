@@ -7,77 +7,65 @@ const resultContainer = document.getElementById("result-container")
 form.addEventListener("submit", (e) => {
   e.preventDefault()
 
-    resultContainer.innerText = `Ai de platit ${functionality(vehicle.value, capacity.value)}`
-  console.log(functionality(vehicle.value, capacity.value ))
+  resultContainer.innerText = `Ai de platit ${functionality(
+    vehicle.value,
+    capacity.value
+  )}`
+  console.log(functionality(vehicle.value, capacity.value))
 })
 
-const functionality = (vehiclu ,capacitate) => {
-
+const functionality = (vehicul, capacitate) => {
   const cm3Division = capacitate / 200
 
   // Nu cred ca else-urile sau userShielding-ul are vre-o folosinta aici dar le-am lasat
   // Din moment ce fac return pt functie nu mai am nevoie de break aparent
-  switch (vehiclu) {
+  if (!vehicul || !capacitate) return "aceasta capacitate nu exista"
+
+  switch (vehicul) {
     case "motocicleta":
     case "cvadriclu":
     case "triciclu": {
       if (capacitate <= 1600) {
         return `${Math.floor(cm3Division * 8)} lei`
-
       } else if (capacitate > 1600) {
         return `${Math.floor(cm3Division * 9)} lei`
-
-      } else {
-        return "aceasta capacitate nu exista"
       }
+
       //   break
     }
     case "autoturism": {
       if (capacitate <= 1600) {
         return `${Math.floor(cm3Division * 8)} lei`
-
       } else if (capacitate > 1600 && capacitate <= 2000) {
         return `${Math.floor(cm3Division * 22)} lei`
-
       } else if (capacitate > 2001 && capacitate <= 2600) {
         return `${Math.floor(cm3Division * 85)} lei`
-
       } else if (capacitate > 2601 && capacitate <= 3000) {
         return `${Math.floor(cm3Division * 171)} lei`
-
       } else if (capacitate > 3001) {
         return `${Math.floor(cm3Division * 345)} lei`
-        
-      } else {
-        return "aceasta capacitate nu exista"
       }
       //   break
     }
+
     case "autobuz":
     case "autocar":
     case "microbuz": {
-      return capacitate
-        ? `${Math.floor(cm3Division * 28)} lei`
-        : "Aceasta capacitate nu exista"
-
+      return `${Math.floor(cm3Division * 28)} lei`
       //   break
     }
     case "tractor": {
-      return capacitate
-        ? `${Math.floor(cm3Division * 22)} lei`
-        : "Aceasta capacitate nu exista"
-
+      return `${Math.floor(cm3Division * 22)} lei`
       //   break
     }
     case "camion": {
-      return capacitate
-        ? `${Math.floor(cm3Division * 34)} lei`
-        : "Aceasta capacitate nu exista"
-
+      return `${Math.floor(cm3Division * 34)} lei`
       //   break
     }
     default: {
-        console.log("Nu ai introdus nimic")
+      console.log("Nu ai introdus nimic")
     }
   }
+
+  return "Nu ai introdus parametrii la functie"
 }

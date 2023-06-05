@@ -3,6 +3,11 @@ const capacitate =  parseInt(prompt("Te rog adauga capacitatea cilindrinca"))
 
 const cm3Division = capacitate / 200
 
+if(!capacitate){
+  alert("aceasta capacitate nu exista")
+  console.log("ha")
+}
+
 switch (vehicul) {
   case "motocicleta":
   case "cvadriclu":
@@ -15,9 +20,6 @@ switch (vehicul) {
       alert(`${Math.floor(cm3Division * 9)} lei`)
       console.log("Peste 1600")
     } 
-    else {
-      alert("aceasta capacitate nu exista")
-    }
     break
   }
   case "autoturism": {
@@ -40,8 +42,6 @@ switch (vehicul) {
     else if (capacitate > 3001) {
       alert(`${Math.floor(cm3Division * 345)} lei`)
       console.log("peste 3001 auto")
-    } else {
-      alert("aceasta capacitate nu exista")
     }
     break
   }
@@ -57,21 +57,13 @@ switch (vehicul) {
     break
   }
   case "tractor": {
-    alert(
-      capacitate
-        ? `${Math.floor(cm3Division * 22)} lei`
-        : "Aceasta capacitate nu exista"
-    )
+    alert(`${Math.floor(cm3Division * 22)} lei`)
     console.log("tractor")
     break
   }
   // Aici am decis sa prescurtez denumirea
   case "camion": {
-    alert(
-      capacitate
-        ? `${Math.floor(cm3Division * 34)} lei`
-        : "Aceasta capacitate nu exista"
-    )
+    alert(`${Math.floor(cm3Division * 34)} lei`)
     console.log("camion")
     break
   }
