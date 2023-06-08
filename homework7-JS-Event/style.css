@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+section h1 {
+  background-color: rgb(65, 156, 65);
+  color: white;
+  font-size: 2.5rem;
+  padding: 1rem 0 2rem 1rem;
+}
+section .container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5px;
+}
+section .container form label {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+section .container form input, section .container form button {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid rgb(201, 201, 201);
+}
+section .container form button {
+  background-color: rgb(56, 56, 56);
+  color: white;
+}
+section .container form button:hover {
+  background-color: rgb(149, 149, 149);
+  cursor: pointer;
+}
+section .container form span {
+  padding-left: 2rem;
+  color: rgb(255, 98, 59);
+}
+section .container form .disabled {
+  display: none;
+}
+section .container div h2 {
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+}
+section .container div ul {
+  list-style: none;
+  padding: 0;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5px;
+}
+section .container div ul li {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  align-items: center;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+section .container div ul li:not(:last-of-type) {
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+section .container div ul li button {
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px 0 0 5px;
+  background: green;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+section .container div ul li button:hover {
+  background: red;
+}
+section .container div ul li:first-of-type button {
+  border-radius: 5px 5px 0 5px;
+}
+section .container div ul li:last-of-type button {
+  border-radius: 5px 0 5px 5px;
+}
+section .container div ul .struck {
+  text-decoration: line-through;
+}/*# sourceMappingURL=style.css.map */
