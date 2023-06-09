@@ -85,5 +85,3 @@ const addBlackAndWhite = (list) => {
 }
 
 addBlackAndWhite(boxes)
-
-console.log(boxes[1].classList)
