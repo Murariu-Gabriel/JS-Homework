@@ -17,6 +17,10 @@ for (const [index, element] of array.entries()) {
 
 
 
+## Local Storage
+
+- Daca stochezi direct elemente in local storage pozitia lor nu va fi aceasi la reincarcarea paginii, pentru a avea o pozitie exacta trebuie sa te foloseste de obiecte sau array
+
 
 
 
