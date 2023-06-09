@@ -1,0 +1,22 @@
+.chess-table{
+    margin: 0 auto;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
+.box{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(186, 186, 186);
+    border: 1px solid rgb(186, 185, 185);
+}
+
+.odd{
+ background-color: white;
+}
+
+.even{
+ background-color: black;
+}
