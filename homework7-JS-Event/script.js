@@ -5,29 +5,31 @@ const formButton = document.body.querySelector("form button")
 const input = document.getElementById("add-item")
 const errorMsg = document.querySelector("form span")
 
+// Imi lipseste faptul ca nu retine daca un element a fost sau nu completat, probabil voi reface aceasta aplicatie in viitorul apropiat folosindu-ma de un array de obiecte in care sa trec ca proprietate daca este taiat sau nu ca in momentul loading-ului sa ii adauge acea proprietate. Sau pot face un
+
+let items = {
+
+}
+
 window.addEventListener("load", () => {
-//   loadItems()
 loadItems()
 })
 
-// addAllFunctionality
+
 // localStorage.clear()
 
-// ceva nu e in regula cu git
+// console.log(JSON.parse(localStorage.getItem("items")))
 
-// Trebuie sa iti dai seama dece isi schimba locatia elementele din local storage
 const getElementsFromStorage = () => {
-    const elements = []
-    for (let i = 0; i < localStorage.length; i++) {
-        const storageKey = localStorage.key(i)
-        console.log(localStorage.key(0))
-           if (storageKey !== "debug") {
-               const value = localStorage.getItem(localStorage.key(i))
-               console.log(value)
-             elements.push(value)
-           }
-    }
-    console.log(elements)
+  const elements = []
+  const localStorageData = localStorage.getItem("items")
+ 
+  const convertedData = JSON.parse(localStorageData)
+  items = {...convertedData}
+  for(const item in convertedData){
+    elements.push(convertedData[item])
+  }
+
     return elements
 }
 
@@ -44,26 +46,31 @@ const reloadFunctionalityOfList = () => {
     }
 }
 
-
 const loadItems = () => {
 
  const elements = getElementsFromStorage()    
     addElementsFromStorageToList(elements)
     reloadFunctionalityOfList()
-  console.log(elements)
+  // console.log(elements)
   
 }
 
+// adaugarea itemelor in obiect
 
-
-const addItemToLocalStorage = (inputValue, func) => {
-  const funcResult = func(inputValue)
-  const html = funcResult.outerHTML
-  localStorage.setItem(inputValue, html)
+const addToLocalStorage = (elements) => {
+    const convertedElements = JSON.stringify(elements)
+    localStorage.setItem("items", convertedElements)
 }
 
-const removeItemToLocalStorage = (key) => {
-  localStorage.removeItem(key)
+
+const addItemInObj = (inputValue, func) => {
+    const htmlEl = func(inputValue)
+    const convertedHtml = htmlEl.outerHTML
+    items[inputValue] = convertedHtml
+}
+
+const deleteItemInObj = (key) => {
+    delete items[key]
 }
 
 const ifExistsInList = (input) => {
@@ -87,7 +94,7 @@ const loadListElement2 = (value) => {
 const loadListElement = (value) => {
   const newLi = list.appendChild(createLi(value))
   addAllFunctionality(newLi)
-  addItemToLocalStorage(value, createLi)
+  // addItemToLocalStorage(value, createLi) // pentru adaugare directa in local storage
 }
 
 form.addEventListener("submit", (e) => {
@@ -100,6 +107,8 @@ form.addEventListener("submit", (e) => {
   ) {
     errorMsg.innerText = ""
     const inputValue = input.value
+    addItemInObj(inputValue, createLi)
+    addToLocalStorage(items)
     loadListElement(inputValue)
     input.value = ""
 
@@ -125,13 +134,11 @@ const createDeleteBtn = () => {
 }
 
 const addCheckedFunctionality = (element) => {
-  const struck = () => {
-    element.addEventListener("click", () => {
+    element.addEventListener("click", (e) => {
+       e.stopPropagation()
       element.classList.toggle("struck")
     })
-  }
 
-  struck()
 }
 
 // Aici sunt curios daca am implementat bine stergerea event-ului
@@ -140,7 +147,7 @@ const addCheckedFunctionality = (element) => {
 
 const buttonDeleteFunctionality = (button) => {
   const deleteFunc = () => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
       button.parentElement.remove()
 
       if (list.children.length < 10) {
@@ -148,7 +155,9 @@ const buttonDeleteFunctionality = (button) => {
       }
 
       const liInnerText = button.parentElement.innerText
-      removeItemToLocalStorage(liInnerText)
+      deleteItemInObj(liInnerText)
+      addToLocalStorage(items)
+      // removeItemToLocalStorage(liInnerText) // pentru inlaturare directa local storage
     })
   }
   deleteFunc()
@@ -206,4 +215,34 @@ const addAllFunctionality = (element) => {
 //       loadListElement2(value)
 //     }
 //   }
+// }
+
+
+
+// in case you want to go for updating direcly local storage
+
+// const getElementsFromStorage = () => {
+//   const elements = []
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const storageKey = localStorage.key(i)
+//     // console.log(localStorage.key(0))
+//     if (storageKey !== "debug") {
+//       const value = localStorage.getItem(localStorage.key(i))
+//       //  console.log(value)
+//       elements.push(value)
+//     }
+//   }
+//   // console.log(elements)
+//   return elements
+// }
+
+
+// const addItemToLocalStorage = (inputValue, func) => {
+//   const funcResult = func(inputValue)
+//   const html = funcResult.outerHTML
+//   localStorage.setItem(inputValue, html)
+// }
+
+// const removeItemToLocalStorage = (key) => {
+//   localStorage.removeItem(key)
 // }

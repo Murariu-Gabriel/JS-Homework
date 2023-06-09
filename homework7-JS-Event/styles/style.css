@@ -3,17 +3,22 @@
   margin: 0;
 }
 
-section h1 {
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section .container {
+  width: 100%;
+  gap: 1.5rem;
+}
+section .container h1 {
   background-color: rgb(65, 156, 65);
   color: white;
   font-size: 2.5rem;
   padding: 1rem 0 2rem 1rem;
 }
-section .container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+section .container form {
   padding: 1rem;
   margin: 1rem;
   border: 1px solid rgb(201, 201, 201);
@@ -44,17 +49,17 @@ section .container form span {
 section .container form .disabled {
   display: none;
 }
-section .container div h2 {
+section .container form div h2 {
   padding-bottom: 0.5rem;
   font-size: 2rem;
 }
-section .container div ul {
+section .container form div ul {
   list-style: none;
   padding: 0;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 5px;
 }
-section .container div ul li {
+section .container form div ul li {
   display: flex;
   justify-content: space-between;
   padding-left: 1rem;
@@ -62,10 +67,10 @@ section .container div ul li {
   cursor: pointer;
   word-wrap: break-word;
 }
-section .container div ul li:not(:last-of-type) {
+section .container form div ul li:not(:last-of-type) {
   border-bottom: 1px solid rgb(201, 201, 201);
 }
-section .container div ul li button {
+section .container form div ul li button {
   padding: 1rem;
   border: 0;
   border-radius: 5px 0 0 5px;
@@ -74,15 +79,15 @@ section .container div ul li button {
   font-size: 1rem;
   cursor: pointer;
 }
-section .container div ul li button:hover {
+section .container form div ul li button:hover {
   background: red;
 }
-section .container div ul li:first-of-type button {
+section .container form div ul li:first-of-type button {
   border-radius: 5px 5px 0 5px;
 }
-section .container div ul li:last-of-type button {
+section .container form div ul li:last-of-type button {
   border-radius: 5px 0 5px 5px;
 }
-section .container div ul .struck {
+section .container form div ul .struck {
   text-decoration: line-through;
 }/*# sourceMappingURL=style.css.map */
