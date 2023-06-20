@@ -22,7 +22,8 @@ const sumOfNums2 = array2.reduce((accumulator, current) => {
   }
 
   return accumulator + current
-})
+}, 0)
+// Aici presupun ca asa se adauga cel initial
 
 // console.log(sumOfNums2)
 
@@ -61,11 +62,7 @@ const array4 = [3, 5, 7, 9, 4]
 const wordArray = ["ceva", "altceva", "potop", "somthing", "somethings"]
 
 const isWord4Letters = (word) => {
-  if (word.length === 4) {
-    return true
-  }
-
-  return false
+  return word.length === 4
 }
 
 const isPalindrom = (string) => {
@@ -80,8 +77,6 @@ const isPalindrom = (string) => {
 
 
   return string === joinedString
-    ? true
-    : false
 }
 
 
