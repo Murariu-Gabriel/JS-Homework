@@ -40,11 +40,8 @@ const findGreaterThan8 = numbers.find((number) => number > 8)
 
 const isPerfectSquare = (num) => {
   const division = Math.sqrt(num)
-  if (num % division !== 0) {
-    return false
-  }
-
-  return true
+  
+  return num % division !== 0
 }
 
 const findFirstSquarePerfect = (array) => {
