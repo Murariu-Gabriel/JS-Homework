@@ -1,12 +1,7 @@
 const array1 = [1, 2, 4, 7, 9, 20];
 const array2 = [1, true, false, 4, 3, 10, 20, "string", NaN, undefined];
 
-const isNumber = (num) => {
-  if (typeof num === "number" && !isNaN(num)) {
-    return true;
-  }
-  return false;
-}
+const isNumber = (num) => typeof num === "number" && !isNaN(num)
 
 const mediaAritmetica = (arr) => {
   let rez = 0;
@@ -46,8 +41,8 @@ const fibonaciiNumbers = (num) => {
 
     for (let i = 0; i <= num; i++) {
         calc = previous + next; // 0 + 1 = 1 || 1 + 1 = 2 || 1 + 2 = 3 || 2 + 3 = 5 || 3 + 5 = 8 ||
-        previous = next; // 0 -> 1 || 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 ||
-        next = calc; // 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 || 1 -> 8 ||
+        previous = next;           // 0 -> 1 || 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 ||
+        next = calc;               // 1 -> 1 || 1 -> 2 || 1 -> 3 || 1 -> 5 || 1 -> 8 ||
 
         console.log(calc);
         nums.push(calc);
