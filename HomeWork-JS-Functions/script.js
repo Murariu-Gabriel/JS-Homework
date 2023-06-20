@@ -8,33 +8,11 @@ const mockSentence2 = "Maria are salar de 1000 de usd/luna un bonus de 10000 lei
 
 const mockSentence3 ="Darius are salar de 1000 de usd/luna un bonus de 10000 euro/an si castiga din freeelancing 3000 de usd/luna"
 
+const EUR = 4.62
+const USD = 4.95
 
 
-const isStringMoney = (word) => {
-  if (word.includes("usd") || word.includes("euro") || word.includes("lei")) {
-    return true
-  }
-}
-
-const moneyTypesFromString = (array) => {
-  const money = []
-  for (const el of array) {
-    if (isStringMoney(el)) {
-      money.push(el)
-    }
-  }
-  return money
-}
-
-const numsFromString = (array) => {
-  const nums = []
-  for (const el of array) {
-    if (!isNaN(el)) {
-      nums.push(parseInt(el))
-    }
-  }
-  return nums
-}
+const isStringMoney = (word) => word.includes("usd") || word.includes("euro") || word.includes("lei")
 
 const calculTotal = (array) => {
   const salarAnual = array[0] * 12
@@ -47,33 +25,35 @@ const calculTotal = (array) => {
 
 const convertMoney = (sum, moneyType) => {
     if(moneyType.includes("usd")){
-      return sum * 4.62
+      return sum * USD
     }
      if (moneyType.includes("euro")) {
-       return sum * 4.95
+       return sum * EUR
      }
      return sum
 }
 
 const computeIncome = (sentence) => {
   const splitSentence = sentence.split(" ")
+  const stringNums = splitSentence.filter((el) => !isNaN(el))
+  const parsedNums = stringNums.map((string) => parseInt(string))
   const name = splitSentence[0]
-
-  const nums = numsFromString(splitSentence)
-  const total = calculTotal(nums)
+  
+  
+  const total = calculTotal(parsedNums)
  
   if (!splitSentence.includes("euro/luna") && !splitSentence.includes("usd/luna")) {
     return `Venitul anual al lui ${name} este de ${total}`
     
   } else {
-    const moneyTypes = moneyTypesFromString(splitSentence)
+    const moneyTypes = splitSentence.filter(el => isStringMoney(el))
 
     for(const [index, element] of moneyTypes.entries()){
-       nums[index] = convertMoney(nums[index], element)
+       parsedNums[index] = convertMoney(parsedNums[index], element)
        console.log(element);
     }
     
-    return `Venitul anual al lui ${name} este de ${calculTotal(nums)}`
+    return `Venitul anual al lui ${name} este de ${calculTotal(parsedNums)}`
   }
   
 }
